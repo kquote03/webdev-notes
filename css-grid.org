@@ -52,11 +52,22 @@ Just like flexbox, every child of a grid-container is a *grid-item*.
 * grid-template-rows
 Defines how much space each row takes
 #+begin_src css
-grid-template-rows: 30px 30px 30px;
+grid-template-rows: 30px 40px 50px;
 #+end_src
 
 #+begin_export html
 <body>
-<input type="button" value="set each to 30px" onClick="appendStyle('.main{grid-template-rows: 30px 30px 30px;}')"/>
+<input type="button" value="set each to 30, 40, 50px" onClick="appendStyle('.main{grid-template-rows: 30px 40px 50px;}')"/>
+</body>
+#+end_export
+* grid-template-columns
+same as rows but for columns
+#+begin_src css
+grid-template-rows: 30px 40px 50px;
+#+end_src
+
+#+begin_export html
+<body>
+<input type="button" value="set each to 30, 40, 50px" onClick="appendStyle('.main{grid-template-columns: 30px 40px 50px;}')"/>
 </body>
 #+end_export
