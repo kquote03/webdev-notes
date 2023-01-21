@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-21 Sat 13:28 -->
+<!-- 2023-01-21 Sat 13:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CSS Grid</title>
@@ -201,15 +201,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga822282">1. example</a></li>
-<li><a href="#orgff0d5be">2. Container</a></li>
-<li><a href="#org198b6fe">3. grid-template-rows</a></li>
-<li><a href="#org3b6b473">4. grid-template-columns</a></li>
+<li><a href="#org8773879">1. example</a></li>
+<li><a href="#org1b9fba8">2. Container</a></li>
+<li><a href="#orgec54a96">3. grid-template-rows</a></li>
+<li><a href="#orge3f56bb">4. grid-template-columns</a></li>
+<li><a href="#orga16cf3b">5. Using fractional units (fr)</a></li>
+<li><a href="#orgb25782b">6. Special Thanks</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga822282" class="outline-2">
-<h2 id="orga822282"><span class="section-number-2">1.</span> example</h2>
+<div id="outline-container-org8773879" class="outline-2">
+<h2 id="org8773879"><span class="section-number-2">1.</span> example</h2>
 <div class="outline-text-2" id="text-1">
 <script>
 function appendStyle(stuff){
@@ -256,16 +258,16 @@ head.innerHTML += stuff;
 </body>
 </div>
 </div>
-<div id="outline-container-orgff0d5be" class="outline-2">
-<h2 id="orgff0d5be"><span class="section-number-2">2.</span> Container</h2>
+<div id="outline-container-org1b9fba8" class="outline-2">
+<h2 id="org1b9fba8"><span class="section-number-2">2.</span> Container</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Just like flexbox, every child of a grid-container is a <b>grid-item</b>.
 </p>
 </div>
 </div>
-<div id="outline-container-org198b6fe" class="outline-2">
-<h2 id="org198b6fe"><span class="section-number-2">3.</span> grid-template-rows</h2>
+<div id="outline-container-orgec54a96" class="outline-2">
+<h2 id="orgec54a96"><span class="section-number-2">3.</span> grid-template-rows</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Defines how much space each row takes
@@ -280,8 +282,8 @@ Defines how much space each row takes
 </body>
 </div>
 </div>
-<div id="outline-container-org3b6b473" class="outline-2">
-<h2 id="org3b6b473"><span class="section-number-2">4.</span> grid-template-columns</h2>
+<div id="outline-container-orge3f56bb" class="outline-2">
+<h2 id="orge3f56bb"><span class="section-number-2">4.</span> grid-template-columns</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 same as rows but for columns
@@ -296,10 +298,41 @@ same as rows but for columns
 </body>
 </div>
 </div>
+<div id="outline-container-orga16cf3b" class="outline-2">
+<h2 id="orga16cf3b"><span class="section-number-2">5.</span> Using fractional units (fr)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+We should probably never define precise pixels, so we have another unit we can use, fr (not french), it&rsquo;s basically like a percentage, hence &ldquo;fractional&rdquo;
+</p>
+
+<p>
+For example, if our columns were just 1fr, it&rsquo;s like saying 100%, only 1 column, but 1fr 1fr would mean split it 50 50 between 2 columns.
+<img src="frguide.png" alt="frguide.png" />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #98be65;">grid-template-columns</span>: 1fr 1fr;
+<span style="color: #98be65;">grid-template-rows</span>: 1fr 3fr;
+</pre>
+</div>
+
+<body>
+<input type="button" value="apply" onClick="appendStyle('.main{grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 3fr;}')"/>
+</body>
+</div>
+</div>
+<div id="outline-container-orgb25782b" class="outline-2">
+<h2 id="orgb25782b"><span class="section-number-2">6.</span> Special Thanks</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Zach Gollwitzer
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kenan Ismail</p>
-<p class="date">Created: 2023-01-21 Sat 13:28</p>
+<p class="date">Created: 2023-01-21 Sat 13:48</p>
 </div>
 </body>
 </html>

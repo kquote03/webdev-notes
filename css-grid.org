@@ -71,3 +71,27 @@ grid-template-rows: 30px 40px 50px;
 <input type="button" value="set each to 30, 40, 50px" onClick="appendStyle('.main{grid-template-columns: 30px 40px 50px;}')"/>
 </body>
 #+end_export
+* Using fractional units (fr)
+We should probably never define precise pixels, so we have another unit we can use, fr (not french), it's basically like a percentage, hence "fractional"
+
+For example, if our columns were just 1fr, it's like saying 100%, only 1 column, but 1fr 1fr would mean split it 50 50 between 2 columns.
+[[file:frguide.png]]
+
+#+begin_src css
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 3fr;
+#+end_src
+
+#+begin_export html
+<body>
+<input type="button" value="apply" onClick="appendStyle('.main{grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 3fr;}')"/>
+</body>
+#+end_export
+* repeat()
+if we wanted to make an 8 row layout, we'd have to type ~1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr~, but that's stupid \wedge dumb, so we can just use the repeat function like this
+
+#+begin_src css
+repeat(8, 1fr);
+#+end_src
+* Special Thanks
+Zach Gollwitzer
