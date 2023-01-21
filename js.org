@@ -1,0 +1,79 @@
+#+title: Js
+
+#+begin_src js
+console.log("HEHE")
+#+end_src
+
+#+RESULTS:
+: HEHE
+: undefined
+
+* Differences
+- Strings are immutable even though arrays are
+- .append() -> .push()
+- .pop() removes last element of an array and returns that value
+- .shift() is like .pop() but it removes the first element
+- .unshift() is like .push() but it adds to the beginning of the array
+- var is ver important to ensure scope
+- === for a type sensitive comparison
+- objects are like vectors, you can also add properties like this
+  #+BEGIN_SRC js
+var car={
+            "size":500,
+            "model":"Toyota",
+            "car owner":"kenan hassan"
+        };
+car.engine = "6 horsepower";
+//We can also use bracket notation
+//Required if property has a space
+console.log(car["car owner"]);
+  #+END_SRC
+
+  #+RESULTS:
+  : kenan hassan
+  : undefined
+
+- deleting properties
+  #+begin_src js :results output
+var horse = {
+    "size":4,
+    "weight":600
+        };
+delete horse.weight;
+console.log(JSON.stringify(horse));
+  #+end_src
+
+  #+RESULTS:
+  : {"size":4}
+
+- Immediately invoked functions -> Functions that immediately execute when you declare them, Eg:
+  #+begin_src js
+(function returnCow(){
+console.log("cow");})();
+  #+end_src
+
+  #+RESULTS:
+  : cow
+  : undefined
+
+- Functions can be assigned to variables (if a function doesnt have a name and isnt assigned to a variable, its invalid and called an anonymous function)
+    #+begin_src js
+let myFunction = function(){
+        console.log("Hehe");
+        }
+myFunction();
+    #+end_src
+
+    #+RESULTS:
+    : Hehe
+    : undefined
+
+- Arrow functions
+  #+begin_src js
+let multiplyTwo = (a,b) => a*b;
+console.log(multiplyTwo(4,5));
+  #+end_src
+
+  #+RESULTS:
+  : 20
+  : undefined

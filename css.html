@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-08 Tue 18:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Css</title>
+<meta name="author" content="Kenan Ismail" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Css</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org5925970">1. Shit I dont know:</a>
+<ul>
+<li><a href="#orga92215c">1.1. Select single child (+)</a></li>
+<li><a href="#org4dafb8a">1.2. Select all siblings (~)</a></li>
+<li><a href="#org6c6cf68">1.3. selecting a specific element but only using a class</a></li>
+<li><a href="#org31887a0">1.4. Classes can be shared</a></li>
+<li><a href="#orga08664c">1.5. Pseudo classes (selecting an element in mutlple states)</a></li>
+<li><a href="#org1018b1f">1.6. Precedence</a>
+<ul>
+<li><a href="#org383a7ad">1.6.1. ID</a></li>
+<li><a href="#orgcd3ed32">1.6.2. class</a></li>
+<li><a href="#org5874c91">1.6.3. tag</a></li>
+</ul>
+</li>
+<li><a href="#org479a558">1.7. !important</a></li>
+<li><a href="#org3f8ffd3">1.8. Block vs Inline</a>
+<ul>
+<li><a href="#org30c1f1d">1.8.1. inline block</a></li>
+<li><a href="#orgce5332d">1.8.2. Can be set using the display property</a></li>
+</ul>
+</li>
+<li><a href="#org7631683">1.9. box-sizing: Border box vs Content box</a></li>
+<li><a href="#orgc5aa984">1.10. position</a>
+<ul>
+<li><a href="#org930aae7">1.10.1. static</a></li>
+<li><a href="#org40ce433">1.10.2. absolute</a></li>
+<li><a href="#org3368c23">1.10.3. relative</a></li>
+<li><a href="#org4bb6fab">1.10.4. fixed</a></li>
+<li><a href="#org76955bb">1.10.5. sticky</a></li>
+</ul>
+</li>
+<li><a href="#org5804697">1.11. CSS measurement units</a></li>
+<li><a href="#org7a295c0">1.12. font-weight</a></li>
+<li><a href="#orgb06c346">1.13. border-radius</a></li>
+<li><a href="#orgcec1f95">1.14. box-shadow</a></li>
+<li><a href="#org959845e">1.15. vertical-align</a></li>
+<li><a href="#org8c87aec">1.16. overflow</a></li>
+</ul>
+</li>
+<li><a href="#org691ac78">2. 4 step method to write CSS</a></li>
+<li><a href="#org5f50bb2">3. Responsive design</a>
+<ul>
+<li><a href="#orge6f713b">3.1. Breakpoints</a>
+<ul>
+<li><a href="#org05ff419">3.1.1. basic syntax</a></li>
+<li><a href="#orgd22b0d3">3.1.2. At-rules</a></li>
+<li><a href="#org051062f">3.1.3. logical operators</a></li>
+</ul>
+</li>
+<li><a href="#org486a546">3.2. Checklist</a></li>
+</ul>
+</li>
+<li><a href="#org796e74e">4. Flexbox</a>
+<ul>
+<li><a href="#org9c96b0c">4.1. Parent-child</a></li>
+<li><a href="#orgb840930">4.2. Properties</a>
+<ul>
+<li><a href="#org821c6ea">4.2.1. flex-direction</a></li>
+<li><a href="#orgffd6c2f">4.2.2. justify-content</a></li>
+<li><a href="#org56aaaf4">4.2.3. align-items</a></li>
+<li><a href="#org8fa9b98">4.2.4. flex-wrap</a></li>
+<li><a href="#org8938653">4.2.5. align-self</a></li>
+<li><a href="#orgd24377b">4.2.6. flex-grow</a></li>
+<li><a href="#org8e8257d">4.2.7. flex-shrink</a></li>
+<li><a href="#org98d81ab">4.2.8. flex-basis</a></li>
+<li><a href="#org89f4906">4.2.9. order</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgbfb14b6">5. CSS grid</a>
+<ul>
+<li><a href="#orge8a411b">5.1. grid-template-rows and grid-template-colums</a></li>
+<li><a href="#org5a847b3">5.2. fractional units (Xfr)</a></li>
+<li><a href="#org877ee70">5.3. Placing elements</a>
+<ul>
+<li><a href="#org1faaa24">5.3.1. grid-column-start and grid-column-end</a></li>
+</ul>
+</li>
+<li><a href="#orge74f04e">5.4. The grid area</a>
+<ul>
+<li><a href="#orgd12bbad">5.4.1. justify-items and align-items</a></li>
+<li><a href="#org04de72a">5.4.2. justify-self and align-self</a></li>
+</ul>
+</li>
+<li><a href="#orgd192dcb">5.5. justify-content and align-content</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5925970" class="outline-2">
+<h2 id="org5925970"><span class="section-number-2">1.</span> Shit I dont know:</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga92215c" class="outline-3">
+<h3 id="orga92215c"><span class="section-number-3">1.1.</span> Select single child (+)</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-css">//if we have a p followed by a ul, and we want to select the ul this
+                                       <span style="color: #51afef;">p + ul</span>{
+    <span style="color: #98be65;">color</span>: <span style="color: #ffffff; background-color: #0000ff;">blue</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4dafb8a" class="outline-3">
+<h3 id="org4dafb8a"><span class="section-number-3">1.2.</span> Select all siblings (~)</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-css">//if we want to select all siblings of a ul that are p
+<span style="color: #51afef;">ul ~ p</span>{
+    <span style="color: #98be65;">color</span>: <span style="color: #ffffff; background-color: #ff0000;">red</span>;
+        }
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6c6cf68" class="outline-3">
+<h3 id="org6c6cf68"><span class="section-number-3">1.3.</span> selecting a specific element but only using a class</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-css">//if we have multple p nodes and we want to select only some of them by class
+
+<span style="color: #51afef;">p[class=</span><span style="color: #98be65;">"lmao"</span><span style="color: #51afef;">]</span>{
+    <span style="color: #98be65;">color</span>: <span style="color: #ffffff; background-color: #008000;">green</span>;
+        }
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org31887a0" class="outline-3">
+<h3 id="org31887a0"><span class="section-number-3">1.4.</span> Classes can be shared</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-html">
+&lt;<span style="color: #c678dd;">head</span>&gt;
+  &lt;<span style="color: #c678dd;">style</span> <span style="color: #dcaeea;">type</span>=<span style="color: #98be65;">"text/css"</span>&gt;
+    .a{
+        color: yellow;
+        }
+    .b{
+        color: purple;
+        }
+    .shared{
+        padding: 5px;
+        }
+    &lt;/<span style="color: #c678dd;">style</span>&gt;
+  &lt;/<span style="color: #c678dd;">head</span>&gt;
+
+&lt;<span style="color: #c678dd;">body</span>&gt;
+  &lt;<span style="color: #c678dd;">p</span> <span style="color: #dcaeea;">class</span>=<span style="color: #98be65;">"a shared"</span>&gt;Hi&lt;/<span style="color: #c678dd;">p</span>&gt;
+  &lt;<span style="color: #c678dd;">p</span> <span style="color: #dcaeea;">class</span>=<span style="color: #98be65;">"b shared"</span>&gt;Hello&lt;/<span style="color: #c678dd;">p</span>&gt;
+&lt;/<span style="color: #c678dd;">body</span>&gt;
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga08664c" class="outline-3">
+<h3 id="orga08664c"><span class="section-number-3">1.5.</span> Pseudo classes (selecting an element in mutlple states)</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Let&rsquo;s say we have a button, we want it blue but when we hover over it, we want to change the cursor to be the clicking cursor and make the opacity 80%
+</p>
+
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #51afef;">button</span>{
+    <span style="color: #98be65;">color</span>: <span style="color: #ffffff; background-color: #0000ff;">blue</span>;
+        }
+<span style="color: #51afef;">button:hover</span>{
+    <span style="color: #98be65;">cursor</span>: pointer;
+    <span style="color: #98be65;">opacity</span>: <span style="color: #da8548; font-weight: bold;">0.8</span>;
+        }
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1018b1f" class="outline-3">
+<h3 id="org1018b1f"><span class="section-number-3">1.6.</span> Precedence</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-org383a7ad" class="outline-4">
+<h4 id="org383a7ad"><span class="section-number-4">1.6.1.</span> ID</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+Worth 100 points
+</p>
+</div>
+</div>
+<div id="outline-container-orgcd3ed32" class="outline-4">
+<h4 id="orgcd3ed32"><span class="section-number-4">1.6.2.</span> class</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+worth 10 points
+</p>
+</div>
+</div>
+<div id="outline-container-org5874c91" class="outline-4">
+<h4 id="org5874c91"><span class="section-number-4">1.6.3.</span> tag</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<p>
+worth 1 measly point
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org479a558" class="outline-3">
+<h3 id="org479a558"><span class="section-number-3">1.7.</span> !important</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+can be applied to a CSS property, bypasses all precedence.
+</p>
+</div>
+</div>
+<div id="outline-container-org3f8ffd3" class="outline-3">
+<h3 id="org3f8ffd3"><span class="section-number-3">1.8.</span> Block vs Inline</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li>Block respects width and height properties, but inline (an asshole) doesnt.</li>
+</ul>
+</div>
+<div id="outline-container-org30c1f1d" class="outline-4">
+<h4 id="org30c1f1d"><span class="section-number-4">1.8.1.</span> inline block</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<p>
+الحالة الشاذة
+</p>
+
+<p>
+Basically an inline element but it respects width and height
+</p>
+</div>
+</div>
+<div id="outline-container-orgce5332d" class="outline-4">
+<h4 id="orgce5332d"><span class="section-number-4">1.8.2.</span> Can be set using the display property</h4>
+</div>
+</div>
+<div id="outline-container-org7631683" class="outline-3">
+<h3 id="org7631683"><span class="section-number-3">1.9.</span> box-sizing: Border box vs Content box</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Content box REALLY respects width and height properties, it tries to fit the padding inside it.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc5aa984" class="outline-3">
+<h3 id="orgc5aa984"><span class="section-number-3">1.10.</span> position</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+can be:
+</p>
+</div>
+<div id="outline-container-org930aae7" class="outline-4">
+<h4 id="org930aae7"><span class="section-number-4">1.10.1.</span> static</h4>
+</div>
+<div id="outline-container-org40ce433" class="outline-4">
+<h4 id="org40ce433"><span class="section-number-4">1.10.2.</span> absolute</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<ul class="org-ul">
+<li>if it is a child of a relative element, then its position will depend on that element, otherwise it will be like fixed (dependent on viewport)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3368c23" class="outline-4">
+<h4 id="org3368c23"><span class="section-number-4">1.10.3.</span> relative</h4>
+<div class="outline-text-4" id="text-1-10-3">
+<ul class="org-ul">
+<li>Provides a &rsquo;z-index&rsquo; basically layers, the higher the index the more it is on top.</li>
+<li>margins are also now &rsquo;relative&rsquo; to the object itself, for example if an object exists on x:10y:10 and we make a margin in a relative position of 10, then the y will be 20 not 10.</li>
+<li>the child of a relative can have an absolute position</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4bb6fab" class="outline-4">
+<h4 id="org4bb6fab"><span class="section-number-4">1.10.4.</span> fixed</h4>
+<div class="outline-text-4" id="text-1-10-4">
+<ul class="org-ul">
+<li>Used for navbars, commonly with width=100vw;</li>
+<li>You also must specify the offset from its parent element (top: 0;)</li>
+<li>It no longer takes space in the body</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org76955bb" class="outline-4">
+<h4 id="org76955bb"><span class="section-number-4">1.10.5.</span> sticky</h4>
+</div>
+</div>
+<div id="outline-container-org5804697" class="outline-3">
+<h3 id="org5804697"><span class="section-number-3">1.11.</span> CSS measurement units</h3>
+<div class="outline-text-3" id="text-1-11">
+<ul class="org-ul">
+<li>pixels
+pixels</li>
+<li>percentages
+how much % of the viewport container (if the viewport is resized the element will also be resized)</li>
+<li><p>
+rem (fonts)
+% increase/decrease of font size dependent on how many pixels it&rsquo;s set at (default is 16px)
+</p>
+
+<p>
+so 1.2em will be 120% of 16px, 20% increase or 1.2*16px
+</p></li>
+<li>em (fonts)
+same as rem but it is now relative to the parent element</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7a295c0" class="outline-3">
+<h3 id="org7a295c0"><span class="section-number-3">1.12.</span> font-weight</h3>
+</div>
+<div id="outline-container-orgb06c346" class="outline-3">
+<h3 id="orgb06c346"><span class="section-number-3">1.13.</span> border-radius</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Use for rounded courners (in px)
+</p>
+</div>
+</div>
+<div id="outline-container-orgcec1f95" class="outline-3">
+<h3 id="orgcec1f95"><span class="section-number-3">1.14.</span> box-shadow</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+use for shadow
+</p>
+
+<p>
+box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;
+</p>
+</div>
+</div>
+<div id="outline-container-org959845e" class="outline-3">
+<h3 id="org959845e"><span class="section-number-3">1.15.</span> vertical-align</h3>
+</div>
+<div id="outline-container-org8c87aec" class="outline-3">
+<h3 id="org8c87aec"><span class="section-number-3">1.16.</span> overflow</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+can be set to <b>hidden</b> to hide elements that overflow out of the parent container.
+</p>
+
+<p>
+can also be set to <b>auto</b> to scroll through overflowing content
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org691ac78" class="outline-2">
+<h2 id="org691ac78"><span class="section-number-2">2.</span> 4 step method to write CSS</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>How do i want to arrange the elements on the page?</li>
+<li>How would it look in HTML?</li>
+<li>How can i implement it in CSS instead?</li>
+<li>How should each element be styled?</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5f50bb2" class="outline-2">
+<h2 id="org5f50bb2"><span class="section-number-2">3.</span> Responsive design</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orge6f713b" class="outline-3">
+<h3 id="orge6f713b"><span class="section-number-3">3.1.</span> Breakpoints</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+basically like an if condition for what style of page to display (depending on screen size, etc)
+</p>
+</div>
+<div id="outline-container-org05ff419" class="outline-4">
+<h4 id="org05ff419"><span class="section-number-4">3.1.1.</span> basic syntax</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #c678dd;">@media</span> <span style="color: #5B6268;">/* </span><span style="color: #5B6268;">logical conditions</span><span style="color: #5B6268;">*/</span> (min-width: 768px){
+
+ }
+
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd22b0d3" class="outline-4">
+<h4 id="orgd22b0d3"><span class="section-number-4">3.1.2.</span> At-rules</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgf022db0"></a>@media<br />
+<div class="outline-text-5" id="text-3-1-2-1">
+<p>
+is considered to be an at-rule, it selects which type of device, for example it can be @media screen, @media speech, @media all, etc
+</p>
+</div>
+</li>
+<li><a id="org9848bf5"></a>@supports<br />
+<div class="outline-text-5" id="text-3-1-2-2">
+<p>
+checks if a browser supports a feature
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org051062f" class="outline-4">
+<h4 id="org051062f"><span class="section-number-4">3.1.3.</span> logical operators</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+we have logical operators in CSS, and or
+</p>
+
+<p>
+For example this code
+</p>
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #c678dd;">@media</span> only screen and (min-width: 400px) and (max-width: 600px){
+    <span style="color: #51afef;">*,*</span>{
+        <span style="color: #98be65;">color</span>:<span style="color: #ffffff; background-color: #ff0000;">red</span>;
+    }
+        }
+</pre>
+</div>
+
+<p>
+Translates to iff the device is a screen, and its width is between 400 to 600 px, style all elements red.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org486a546" class="outline-3">
+<h3 id="org486a546"><span class="section-number-3">3.2.</span> Checklist</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>Fluid layouts - does the content resize on different screens?</li>
+<li>Images - do they maintain a good aspect ratio and size on different screens?</li>
+<li>Text - The text should be comfortable to read on any screen size (rule of thumb, 16px p size, 700px max container size)</li>
+<li>Overflow - nothing should overflow</li>
+<li>Full-width mobile content - dont show columns on mobile, make it all 100% width of vp</li>
+<li>General usability
+<ul class="org-ul">
+<li>Are buttons big enough?</li>
+<li>Are most important things showing first?</li>
+<li>Use your site on an actual phone, you can quickly find out if something needs work.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org796e74e" class="outline-2">
+<h2 id="org796e74e"><span class="section-number-2">4.</span> Flexbox</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Flexbox is a way of organizing elements on one axis.
+</p>
+</div>
+<div id="outline-container-org9c96b0c" class="outline-3">
+<h3 id="org9c96b0c"><span class="section-number-3">4.1.</span> Parent-child</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+If you set an element&rsquo;s display property to &rsquo;flexbox&rsquo;, then all its children will be flex items. And element can be a flex item only if its parent is a flex container.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb840930" class="outline-3">
+<h3 id="orgb840930"><span class="section-number-3">4.2.</span> Properties</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-org821c6ea" class="outline-4">
+<h4 id="org821c6ea"><span class="section-number-4">4.2.1.</span> flex-direction</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+Sets the axis, can be row wise or column wise.
+</p>
+</div>
+</div>
+<div id="outline-container-orgffd6c2f" class="outline-4">
+<h4 id="orgffd6c2f"><span class="section-number-4">4.2.2.</span> justify-content</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+Imagine that you have a white page in ms word, this is your container, and the children is the text. The same way you justify stuff there, applies here, sort of.
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="orga00f92d"></a>: start<br />
+<div class="outline-text-5" id="text-4-2-2-1">
+<p>
+the default, makes elements start from the origin of the axis
+</p>
+</div>
+</li>
+<li><a id="org19431a7"></a>: end<br />
+<div class="outline-text-5" id="text-4-2-2-2">
+<p>
+Makes elements begin from the end of the axis
+</p>
+</div>
+</li>
+<li><a id="org82b1d3a"></a>: center<br />
+<div class="outline-text-5" id="text-4-2-2-3">
+<p>
+Centers the elements (to the center of the container)
+</p>
+</div>
+</li>
+<li><a id="org55a9a91"></a>: space-between<br />
+<div class="outline-text-5" id="text-4-2-2-4">
+<p>
+makes the elements spread throughout the whole container with spaces in between
+</p>
+</div>
+</li>
+<li><a id="orgdac5398"></a>: space-around<br />
+<div class="outline-text-5" id="text-4-2-2-5">
+<p>
+same as above but puts spaces at the ends too
+</p>
+</div>
+</li>
+<li><a id="orgd99c94b"></a>: space-evenly<br />
+<div class="outline-text-5" id="text-4-2-2-6">
+<p>
+inverse of space-between
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org56aaaf4" class="outline-4">
+<h4 id="org56aaaf4"><span class="section-number-4">4.2.3.</span> align-items</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+For aligining items on the cross axis. (vertically)
+</p>
+
+<p>
+<b>setting width and height manually overrides this</b>
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgfd3958b"></a>normal<br />
+<div class="outline-text-5" id="text-4-2-3-1">
+<p>
+stretch
+</p>
+</div>
+</li>
+<li><a id="orgb90d17d"></a>stretch<br />
+<div class="outline-text-5" id="text-4-2-3-2">
+<p>
+stretch item to container
+</p>
+</div>
+</li>
+<li><a id="org510e9e0"></a>center<br /></li>
+<li><a id="org537acd2"></a>flex-start<br /></li>
+<li><a id="org750f215"></a>flex-end<br /></li>
+<li><a id="org6f9e380"></a>baseline<br /></li>
+</ol>
+</div>
+<div id="outline-container-org8fa9b98" class="outline-4">
+<h4 id="org8fa9b98"><span class="section-number-4">4.2.4.</span> flex-wrap</h4>
+<div class="outline-text-4" id="text-4-2-4">
+</div>
+<ol class="org-ol">
+<li><a id="org222e6fe"></a>wrap<br />
+<div class="outline-text-5" id="text-4-2-4-1">
+<p>
+the way to handle overflow in flexbox, makes stuff appear in a grid.
+</p>
+
+<p>
+<b>Important</b> If we set this, then we no longer use align-items, we use <b>align-content</b> instead!
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org8938653" class="outline-4">
+<h4 id="org8938653"><span class="section-number-4">4.2.5.</span> align-self</h4>
+<div class="outline-text-4" id="text-4-2-5">
+<p>
+when you want to change the alignment of 1 flexitem only
+</p>
+</div>
+</div>
+<div id="outline-container-orgd24377b" class="outline-4">
+<h4 id="orgd24377b"><span class="section-number-4">4.2.6.</span> flex-grow</h4>
+<div class="outline-text-4" id="text-4-2-6">
+<p>
+how much to use up of available space using free space units
+</p>
+</div>
+</div>
+<div id="outline-container-org8e8257d" class="outline-4">
+<h4 id="org8e8257d"><span class="section-number-4">4.2.7.</span> flex-shrink</h4>
+<div class="outline-text-4" id="text-4-2-7">
+<p>
+how much to shrink a flexitem using overflow units. Keep in mind that each item has a minimum size and wont shrink past that.
+</p>
+</div>
+</div>
+<div id="outline-container-org98d81ab" class="outline-4">
+<h4 id="org98d81ab"><span class="section-number-4">4.2.8.</span> flex-basis</h4>
+<div class="outline-text-4" id="text-4-2-8">
+<p>
+by default it&rsquo;s auto, but basically this takes precedence over any other flex sizing property to change the size
+</p>
+</div>
+</div>
+<div id="outline-container-org89f4906" class="outline-4">
+<h4 id="org89f4906"><span class="section-number-4">4.2.9.</span> order</h4>
+<div class="outline-text-4" id="text-4-2-9">
+<p>
+used to change the order of the flexitems
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbfb14b6" class="outline-2">
+<h2 id="orgbfb14b6"><span class="section-number-2">5.</span> CSS grid</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+First of all, set the display property to grid.
+</p>
+</div>
+<div id="outline-container-orge8a411b" class="outline-3">
+<h3 id="orge8a411b"><span class="section-number-3">5.1.</span> grid-template-rows and grid-template-colums</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+creates a grid with a defined number of rows and columns, can be used in conjunction with the repeat() css function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #51afef;">someselector</span>{
+    <span style="color: #98be65;">display</span>: grid;
+    <span style="color: #98be65;">grid-template-rows</span>: 30px 30px 30px;
+    <span style="color: #98be65;">grid-template-columns</span>: 20px 30px;
+    <span style="color: #5B6268;">/*</span><span style="color: #5B6268;">creates a 3x2 grid</span><span style="color: #5B6268;">*/</span>
+}
+
+<span style="color: #51afef;">anotherselector</span>{
+    <span style="color: #98be65;">display</span>: grid;
+    <span style="color: #98be65;">grid-template-rows</span>: repeat(<span style="color: #da8548; font-weight: bold;">3</span>,30px);
+    <span style="color: #98be65;">grid-template-columns</span>: repeat(<span style="color: #da8548; font-weight: bold;">2</span>,20px);
+    <span style="color: #5B6268;">/*</span><span style="color: #5B6268;">same as the above</span><span style="color: #5B6268;">*/</span>
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5a847b3" class="outline-3">
+<h3 id="org5a847b3"><span class="section-number-3">5.2.</span> fractional units (Xfr)</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+a unit of scale in css grid, the above example but with 1fr instead of 30px
+</p>
+</div>
+</div>
+<div id="outline-container-org877ee70" class="outline-3">
+<h3 id="org877ee70"><span class="section-number-3">5.3.</span> Placing elements</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-org1faaa24" class="outline-4">
+<h4 id="org1faaa24"><span class="section-number-4">5.3.1.</span> grid-column-start and grid-column-end</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<p>
+Basically these properties tell us when to begin the element and when to end it inside our css grid. this is to be used by <b>the children</b> of the css grid element.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge74f04e" class="outline-3">
+<h3 id="orge74f04e"><span class="section-number-3">5.4.</span> The grid area</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+what we defined above is actually the grid area. When we set the width and height of our child elements, it needs to fit inside the grid area.
+</p>
+</div>
+<div id="outline-container-orgd12bbad" class="outline-4">
+<h4 id="orgd12bbad"><span class="section-number-4">5.4.1.</span> justify-items and align-items</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<p>
+to be used in the parent (css grid) element, affects the placement of the child elements within their grid area, can be set the same values as its counterpart in flexbox. (default is stretch)
+</p>
+</div>
+</div>
+<div id="outline-container-org04de72a" class="outline-4">
+<h4 id="org04de72a"><span class="section-number-4">5.4.2.</span> justify-self and align-self</h4>
+<div class="outline-text-4" id="text-5-4-2">
+<p>
+the same as the above but to be used by the child elements (if you want to target only one element)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd192dcb" class="outline-3">
+<h3 id="orgd192dcb"><span class="section-number-3">5.5.</span> justify-content and align-content</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Acts on the css grid element (parent) itself to position the element. same properties as flexbox.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Kenan Ismail</p>
+<p class="date">Created: 2022-11-08 Tue 18:34</p>
+</div>
+</body>
+</html>

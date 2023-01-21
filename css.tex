@@ -1,0 +1,362 @@
+% Created 2022-11-08 Tue 18:34
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Kenan Ismail}
+\date{\today}
+\title{Css}
+\hypersetup{
+ pdfauthor={Kenan Ismail},
+ pdftitle={Css},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.0.50 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Shit I dont know:}
+\label{sec:org3ca466f}
+\subsection{Select single child (+)}
+\label{sec:org133b9a1}
+\begin{verbatim}
+//if we have a p followed by a ul, and we want to select the ul this
+                                       p + ul{
+    color: blue;
+}
+\end{verbatim}
+\subsection{Select all siblings (\textasciitilde{})}
+\label{sec:org34edb9d}
+\begin{verbatim}
+//if we want to select all siblings of a ul that are p
+ul ~ p{
+    color: red;
+        }
+\end{verbatim}
+\subsection{selecting a specific element but only using a class}
+\label{sec:orga4e1960}
+\begin{verbatim}
+//if we have multple p nodes and we want to select only some of them by class
+
+p[class="lmao"]{
+    color: green;
+        }
+\end{verbatim}
+\subsection{Classes can be shared}
+\label{sec:org9c799c7}
+\begin{verbatim}
+
+<head>
+  <style type="text/css">
+    .a{
+        color: yellow;
+        }
+    .b{
+        color: purple;
+        }
+    .shared{
+        padding: 5px;
+        }
+    </style>
+  </head>
+
+<body>
+  <p class="a shared">Hi</p>
+  <p class="b shared">Hello</p>
+</body>
+
+\end{verbatim}
+\subsection{Pseudo classes (selecting an element in mutlple states)}
+\label{sec:org02c2688}
+Let's say we have a button, we want it blue but when we hover over it, we want to change the cursor to be the clicking cursor and make the opacity 80\%
+
+\begin{verbatim}
+button{
+    color: blue;
+        }
+button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+        }
+\end{verbatim}
+\subsection{Precedence}
+\label{sec:org6c1350b}
+\subsubsection{ID}
+\label{sec:orgf5f1b76}
+Worth 100 points
+\subsubsection{class}
+\label{sec:org751c802}
+worth 10 points
+\subsubsection{tag}
+\label{sec:org900ea2a}
+worth 1 measly point
+\subsection{!important}
+\label{sec:org0e64b98}
+can be applied to a CSS property, bypasses all precedence.
+\subsection{Block vs Inline}
+\label{sec:org51e3c97}
+\begin{itemize}
+\item Block respects width and height properties, but inline (an asshole) doesnt.
+\end{itemize}
+\subsubsection{inline block}
+\label{sec:org995630b}
+الحالة الشاذة
+
+Basically an inline element but it respects width and height
+\subsubsection{Can be set using the display property}
+\label{sec:orgd7d0176}
+\subsection{box-sizing: Border box vs Content box}
+\label{sec:orga45b948}
+Content box REALLY respects width and height properties, it tries to fit the padding inside it.
+\subsection{position}
+\label{sec:orgd01f5f6}
+can be:
+\subsubsection{static}
+\label{sec:org890436f}
+\subsubsection{absolute}
+\label{sec:org1ad20df}
+\begin{itemize}
+\item if it is a child of a relative element, then its position will depend on that element, otherwise it will be like fixed (dependent on viewport)
+\end{itemize}
+\subsubsection{relative}
+\label{sec:orge5100e6}
+\begin{itemize}
+\item Provides a 'z-index' basically layers, the higher the index the more it is on top.
+\item margins are also now 'relative' to the object itself, for example if an object exists on x:10y:10 and we make a margin in a relative position of 10, then the y will be 20 not 10.
+\item the child of a relative can have an absolute position
+\end{itemize}
+\subsubsection{fixed}
+\label{sec:org71d387e}
+\begin{itemize}
+\item Used for navbars, commonly with width=100vw;
+\item You also must specify the offset from its parent element (top: 0;)
+\item It no longer takes space in the body
+\end{itemize}
+\subsubsection{sticky}
+\label{sec:org09d28c9}
+\subsection{CSS measurement units}
+\label{sec:org9ba28b8}
+\begin{itemize}
+\item pixels
+pixels
+\item percentages
+how much \% of the viewport container (if the viewport is resized the element will also be resized)
+\item rem (fonts)
+\% increase/decrease of font size dependent on how many pixels it's set at (default is 16px)
+
+so 1.2em will be 120\% of 16px, 20\% increase or 1.2*16px
+\item em (fonts)
+same as rem but it is now relative to the parent element
+\end{itemize}
+\subsection{font-weight}
+\label{sec:org88e30bc}
+\subsection{border-radius}
+\label{sec:org066db6a}
+Use for rounded courners (in px)
+\subsection{box-shadow}
+\label{sec:org54d9c15}
+use for shadow
+
+box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;
+\subsection{vertical-align}
+\label{sec:orgc1cdc4f}
+\subsection{overflow}
+\label{sec:org99122e6}
+can be set to \textbf{hidden} to hide elements that overflow out of the parent container.
+
+can also be set to \textbf{auto} to scroll through overflowing content
+\section{4 step method to write CSS}
+\label{sec:org42be59b}
+\begin{itemize}
+\item How do i want to arrange the elements on the page?
+\item How would it look in HTML?
+\item How can i implement it in CSS instead?
+\item How should each element be styled?
+\end{itemize}
+\section{Responsive design}
+\label{sec:orgd61afae}
+\subsection{Breakpoints}
+\label{sec:org0c82751}
+basically like an if condition for what style of page to display (depending on screen size, etc)
+\subsubsection{basic syntax}
+\label{sec:orgaa041bd}
+\begin{verbatim}
+@media /* logical conditions*/ (min-width: 768px){
+
+ }
+
+\end{verbatim}
+\subsubsection{At-rules}
+\label{sec:org03a3c6a}
+\begin{enumerate}
+\item @media
+\label{sec:org3e32262}
+is considered to be an at-rule, it selects which type of device, for example it can be @media screen, @media speech, @media all, etc
+\item @supports
+\label{sec:org4663856}
+checks if a browser supports a feature
+\end{enumerate}
+\subsubsection{logical operators}
+\label{sec:org10ff6bc}
+we have logical operators in CSS, and or
+
+For example this code
+\begin{verbatim}
+@media only screen and (min-width: 400px) and (max-width: 600px){
+    *,*{
+        color:red;
+    }
+        }
+\end{verbatim}
+
+Translates to iff the device is a screen, and its width is between 400 to 600 px, style all elements red.
+\subsection{Checklist}
+\label{sec:org53bd976}
+\begin{itemize}
+\item Fluid layouts - does the content resize on different screens?
+\item Images - do they maintain a good aspect ratio and size on different screens?
+\item Text - The text should be comfortable to read on any screen size (rule of thumb, 16px p size, 700px max container size)
+\item Overflow - nothing should overflow
+\item Full-width mobile content - dont show columns on mobile, make it all 100\% width of vp
+\item General usability
+\begin{itemize}
+\item Are buttons big enough?
+\item Are most important things showing first?
+\item Use your site on an actual phone, you can quickly find out if something needs work.
+\end{itemize}
+\end{itemize}
+\section{Flexbox}
+\label{sec:org78ace2f}
+Flexbox is a way of organizing elements on one axis.
+\subsection{Parent-child}
+\label{sec:org8c56001}
+If you set an element's display property to 'flexbox', then all its children will be flex items. And element can be a flex item only if its parent is a flex container.
+\subsection{Properties}
+\label{sec:orgb6ab184}
+\subsubsection{flex-direction}
+\label{sec:org330c4a9}
+Sets the axis, can be row wise or column wise.
+\subsubsection{justify-content}
+\label{sec:orgd77a9fa}
+Imagine that you have a white page in ms word, this is your container, and the children is the text. The same way you justify stuff there, applies here, sort of.
+
+\begin{enumerate}
+\item : start
+\label{sec:orgdb35914}
+the default, makes elements start from the origin of the axis
+\item : end
+\label{sec:org9c9b7ab}
+Makes elements begin from the end of the axis
+\item : center
+\label{sec:orgd150ae6}
+Centers the elements (to the center of the container)
+\item : space-between
+\label{sec:org5105a5e}
+makes the elements spread throughout the whole container with spaces in between
+\item : space-around
+\label{sec:orgc689ab0}
+same as above but puts spaces at the ends too
+\item : space-evenly
+\label{sec:org0940d27}
+inverse of space-between
+\end{enumerate}
+\subsubsection{align-items}
+\label{sec:org1de7976}
+For aligining items on the cross axis. (vertically)
+
+\textbf{setting width and height manually overrides this}
+\begin{enumerate}
+\item normal
+\label{sec:org467eadf}
+stretch
+\item stretch
+\label{sec:orgadb53a6}
+stretch item to container
+\item center
+\label{sec:org79c4fe3}
+\item flex-start
+\label{sec:orgbd162ec}
+\item flex-end
+\label{sec:org608c1eb}
+\item baseline
+\label{sec:orgde231fd}
+\end{enumerate}
+\subsubsection{flex-wrap}
+\label{sec:orga242baf}
+\begin{enumerate}
+\item wrap
+\label{sec:org10e3ede}
+the way to handle overflow in flexbox, makes stuff appear in a grid.
+
+\textbf{Important} If we set this, then we no longer use align-items, we use \textbf{align-content} instead!
+\end{enumerate}
+\subsubsection{align-self}
+\label{sec:org83ad0bd}
+when you want to change the alignment of 1 flexitem only
+\subsubsection{flex-grow}
+\label{sec:org86a9bde}
+how much to use up of available space using free space units
+\subsubsection{flex-shrink}
+\label{sec:org0a8a1c2}
+how much to shrink a flexitem using overflow units. Keep in mind that each item has a minimum size and wont shrink past that.
+\subsubsection{flex-basis}
+\label{sec:org57400d4}
+by default it's auto, but basically this takes precedence over any other flex sizing property to change the size
+\subsubsection{order}
+\label{sec:org82a4485}
+used to change the order of the flexitems
+\section{CSS grid}
+\label{sec:orgc554953}
+First of all, set the display property to grid.
+\subsection{grid-template-rows and grid-template-colums}
+\label{sec:orgb206b60}
+creates a grid with a defined number of rows and columns, can be used in conjunction with the repeat() css function.
+
+\begin{verbatim}
+someselector{
+    display: grid;
+    grid-template-rows: 30px 30px 30px;
+    grid-template-columns: 20px 30px;
+    /*creates a 3x2 grid*/
+}
+
+anotherselector{
+    display: grid;
+    grid-template-rows: repeat(3,30px);
+    grid-template-columns: repeat(2,20px);
+    /*same as the above*/
+}
+\end{verbatim}
+\subsection{fractional units (Xfr)}
+\label{sec:org033bbbe}
+a unit of scale in css grid, the above example but with 1fr instead of 30px
+\subsection{Placing elements}
+\label{sec:org14943f6}
+\subsubsection{grid-column-start and grid-column-end}
+\label{sec:orgef8d0ec}
+Basically these properties tell us when to begin the element and when to end it inside our css grid. this is to be used by \textbf{the children} of the css grid element.
+\subsection{The grid area}
+\label{sec:org6ad7513}
+what we defined above is actually the grid area. When we set the width and height of our child elements, it needs to fit inside the grid area.
+\subsubsection{justify-items and align-items}
+\label{sec:org947ef96}
+to be used in the parent (css grid) element, affects the placement of the child elements within their grid area, can be set the same values as its counterpart in flexbox. (default is stretch)
+\subsubsection{justify-self and align-self}
+\label{sec:orgbc7def4}
+the same as the above but to be used by the child elements (if you want to target only one element)
+\subsection{justify-content and align-content}
+\label{sec:org6f7833f}
+Acts on the css grid element (parent) itself to position the element. same properties as flexbox.
+\end{document}

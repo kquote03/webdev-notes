@@ -1,0 +1,62 @@
+#+title: CSS Grid
+* example
+#+begin_export html
+<script>
+function appendStyle(stuff){
+var head = document.getElementById("stylehaha");
+head.innerHTML += stuff;
+}
+</script>
+#+end_export
+#+begin_export html
+<head>
+<style id="stylehaha">
+    .main{
+        width: 310px;
+        height: 310px;
+        /*padding: 5px;*/
+        border: 5px solid black;
+        display: grid;
+    }
+    .gi{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 300;
+        font-size: 4rem;
+    }
+    #one{
+        background-color: #008020;
+        color: #005000;
+    }
+    #two{
+        background-color: #009020;
+        color: #006000;
+    }
+    #three{
+        background-color: #00A020;
+        color: #007000;
+    }
+</style>
+</head>
+<body>
+<div class="main">
+    <div class="gi" id="one">1</div>
+    <div class="gi" id="two">2</div>
+    <div class="gi" id="three">3</div>
+</div>
+</body>
+#+end_export
+* Container
+Just like flexbox, every child of a grid-container is a *grid-item*.
+* grid-template-rows
+Defines how much space each row takes
+#+begin_src css
+grid-template-rows: 30px 30px 30px;
+#+end_src
+
+#+begin_export html
+<body>
+<input type="button" value="set each to 30px" onClick="appendStyle('.main{grid-template-rows: 30px 30px 30px;}')"/>
+</body>
+#+end_export

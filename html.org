@@ -1,0 +1,45 @@
+#+title: Html
+* Event listeners
+** Button example
+*** onclick
+#+begin_src html
+<button onclick="alertme">CLICK</button>
+#+end_src
+#+begin_src js
+function alertme(){
+    alert("ALERTED");
+        }
+#+end_src
+* How to find elements using DOM in js
+#+begin_src js
+document.querySelector('tag');
+#+end_src
+* The DOM node Tree
+** document.
+*** createElement('tag')
+creates an html tag and can be stored to a variable
+
+#+begin_src js
+let paragraph = document.createElement('p');
+//This creates a paragraph node and assigns it to the paragraph variable
+#+end_src
+**** .setAttributeNode(attributeNodeVariable)
+sets the elements attribute to a known attribute node (see below)
+*** createAttribute('attribute')
+creates an html attribute, this attribute can be added to an html tag node later (eg)
+**** .value
+accesses the value attribute of the html attribute node, can set and get directly.
+*** createTextNode(str)
+creates a text node =)
+*** .appendChild(nodeVar)
+Adds the actual node as a child to another node, if added to the document.body node, then it actually places it in the webpage
+*** Example of all
+#+begin_src js
+let paragraph = document.createElement('p');
+let text = document.createTextNode("Hehe");
+paragraph.appendChild(text);
+let style = document.createAttribute('style');
+style.value="color: red;";
+paragraph.setAttributeNode(style);
+document.body.appendChild(paragraph);
+#+end_src
